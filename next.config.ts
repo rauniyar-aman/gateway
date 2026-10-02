@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  distDir: process.env.GATEWAY_BUILD_DIR || ".next",
   experimental: {
     serverActions: {
       bodySizeLimit: "50mb",
