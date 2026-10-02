@@ -28,7 +28,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # DATABASE_URL dummy supaya build tidak gagal saat evaluasi env (build tidak konek DB)
 ENV DATABASE_URL="postgresql://build:build@localhost:5432/build"
-RUN npx prisma generate && npm run build
+RUN npx prisma generate && npm run build -- --webpack
 
 # ---------- runner: jalankan custom server ----------
 FROM base AS runner
